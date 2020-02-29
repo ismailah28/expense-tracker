@@ -6,6 +6,7 @@
     <Header msg="Expense Tracker" />
     <Balance />
     <IncomeExpenses />
+    <TransactionList />
   </div>
 </template>
 
@@ -13,6 +14,7 @@
 import Header from "./components/Header.vue";
 import Balance from "./components/Balance";
 import IncomeExpenses from "./components/IncomeExpenses";
+import TransactionList from "./components/TransactionList";
 import "./main.css";
 
 export default {
@@ -20,7 +22,8 @@ export default {
   components: {
     Header,
     Balance,
-    IncomeExpenses
+    IncomeExpenses,
+    TransactionList
   }
 };
 </script>
