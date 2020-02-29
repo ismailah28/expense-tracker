@@ -1,5 +1,5 @@
 <template>
-  <div class="text-2xl text-blue-800 font-bold text-center pt-4">
+  <div class="text-4xl font-bold text-center pt-4">
     {{ msg }}
   </div>
 </template>
