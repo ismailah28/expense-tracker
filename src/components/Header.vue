@@ -1,12 +1,13 @@
 <template>
-  <div class="text-2xl text-blue-800 font-bold">
-    Hello World!
+  <div class="text-2xl text-blue-800 font-bold text-center pt-4">
+    {{ msg }}
   </div>
 </template>
 
 <script>
 export default {
-  name: "HelloWorld"
+  name: "Header",
+  props: ["msg"]
 };
 </script>
 
