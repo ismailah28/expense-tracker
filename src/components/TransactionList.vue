@@ -1,9 +1,11 @@
 <template>
   <div>
-    <h3 class="border-b-1  mt-8 text-xl font-medium uppercase">History</h3>
+    <h3 class="border-b-2 pb-2 mb-4  mt-8 text-h3 font-medium">
+      History
+    </h3>
     <ul class="mb-4">
       <li
-        class="bg-white shadow-md mb-1 flex justify-between relative p-4 border-r-8 border-red-400"
+        class="font-medium bg-white shadow-md mb-1 flex justify-between relative p-2 border-r-8 border-red-400"
       >
         Cash <span>-$400</span
         ><button
@@ -13,7 +15,7 @@
         </button>
       </li>
       <li
-        class="bg-white shadow-md mb-1 flex justify-between relative p-4 border-r-8 border-green-400"
+        class="font-medium bg-white shadow-md mb-1 flex justify-between relative p-2 border-r-8 border-green-400"
       >
         Cash <span>-$400</span
         ><button
