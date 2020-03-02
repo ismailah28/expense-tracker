@@ -7,7 +7,7 @@
     <Header msg="Expense Tracker" />
     <Balance />
     <IncomeExpenses />
-    <TransactionList />
+    <TransactionList :transactions="transactions" />
     <AddTransaction />
   </div>
 </template>
@@ -18,16 +18,39 @@ import Balance from "./components/Balance";
 import IncomeExpenses from "./components/IncomeExpenses";
 import TransactionList from "./components/TransactionList";
 import AddTransaction from "./components/AddTransaction";
+import EventBus from "./eventBus";
 import "./main.css";
+
+const dummyTransactions = [
+  { id: 1, text: "Flower", amount: -20 },
+  { id: 2, text: "Salary", amount: 300 },
+  { id: 3, text: "Book", amount: -10 },
+  { id: 4, text: "Camera", amount: 150 }
+];
 
 export default {
   name: "App",
+  data() {
+    return {
+      transactions: dummyTransactions
+    };
+  },
   components: {
     Header,
     Balance,
     IncomeExpenses,
     TransactionList,
     AddTransaction
+  },
+  methods: {
+    addTransaction(transaction) {
+      this.transactions.push(transaction);
+    }
+  },
+  created() {
+    EventBus.$on("add-transaction", event => {
+      this.addTransaction(event);
+    });
   }
 };
 </script>
