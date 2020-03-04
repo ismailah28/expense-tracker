@@ -23,12 +23,12 @@
           class="border border-gray-400 rounded block p-2 w-full"
           type="number"
           id="amount"
-          v-model="amount"
+          v-model.number="amount"
           placeholder="Enter amount..."
         />
       </div>
       <button
-        class="font-medium bg-purple-700 shadow-md rounded-md text-white block p-2 mt-4 w-full hover:bg-purple-600 focus:outline-none"
+        class="font-medium bg-purple-700 shadow-md rounded-md text-white block p-2 my-4 w-full hover:bg-purple-600 focus:outline-none"
       >
         Add Transaction
       </button>
