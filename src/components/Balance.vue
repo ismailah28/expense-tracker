@@ -5,8 +5,6 @@
   </div>
 </template>
 <script>
-import EventBus from "../eventBus";
-
 export default {
   name: "Balance",
   data() {
@@ -14,10 +12,6 @@ export default {
       balance: 0
     };
   },
-  created() {
-    EventBus.$on("add-transaction", event => {
-      this.balance += event.amount;
-    });
-  }
+  created() {}
 };
 </script>

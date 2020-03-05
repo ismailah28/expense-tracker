@@ -36,8 +36,6 @@
   </div>
 </template>
 <script>
-import EventBus from "../eventBus";
-
 export default {
   name: "AddTransaction",
   data() {
@@ -53,8 +51,7 @@ export default {
         text: this.text,
         amount: this.amount
       };
-
-      EventBus.$emit("add-transaction", newTransaction);
+      return newTransaction;
     }
   }
 };
