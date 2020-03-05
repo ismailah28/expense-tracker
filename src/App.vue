@@ -18,7 +18,6 @@ import Balance from "./components/Balance";
 import IncomeExpenses from "./components/IncomeExpenses";
 import TransactionList from "./components/TransactionList";
 import AddTransaction from "./components/AddTransaction";
-import EventBus from "./eventBus";
 import "./main.css";
 
 const dummyTransactions = [
@@ -47,11 +46,7 @@ export default {
       this.transactions.push(transaction);
     }
   },
-  created() {
-    EventBus.$on("add-transaction", event => {
-      this.addTransaction(event);
-    });
-  }
+  created() {}
 };
 </script>
 
