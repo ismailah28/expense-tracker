@@ -15,6 +15,7 @@
       >
         {{ transaction.text }} <span>{{ transaction.amount }}</span
         ><button
+          @click="deleteTransaction(transaction)"
           class="delete-btn bg-custom-red text-white text-lg font-medium p-1 leading-5 absolute top-0 left-0
            transform translate -translate-x-full cursor-pointer opacity-0 transition-opacity duration-300 ease-out"
         >
@@ -25,9 +26,18 @@
   </div>
 </template>
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "TransactionList",
-  props: ["transactions"]
+
+  computed: {
+    ...mapGetters(["transactions"])
+  },
+
+  methods: {
+    ...mapActions(["deleteTransaction"])
+  }
 };
 </script>
 <style scoped>

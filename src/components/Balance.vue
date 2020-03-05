@@ -5,13 +5,12 @@
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "Balance",
-  data() {
-    return {
-      balance: 0
-    };
-  },
-  created() {}
+
+  computed: {
+    ...mapGetters(["balance"])
+  }
 };
 </script>

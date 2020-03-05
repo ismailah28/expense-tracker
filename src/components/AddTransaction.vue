@@ -3,7 +3,7 @@
     <h3 class="border-b-2 pb-2 mt-4 text-h3 font-medium">
       Add New Transaction
     </h3>
-    <form @submit.prevent="addTransaction" action="#">
+    <form @submit.prevent="addTransaction">
       <div class="">
         <label class="my-4 inline-block font-medium" for="text">Text</label>
         <input
@@ -44,6 +44,7 @@ export default {
       amount: 0
     };
   },
+
   methods: {
     addTransaction() {
       let newTransaction = {
@@ -51,7 +52,7 @@ export default {
         text: this.text,
         amount: this.amount
       };
-      return newTransaction;
+      this.$store.dispatch("addTransaction", newTransaction);
     }
   }
 };

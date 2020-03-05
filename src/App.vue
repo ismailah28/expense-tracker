@@ -7,7 +7,7 @@
     <Header msg="Expense Tracker" />
     <Balance />
     <IncomeExpenses />
-    <TransactionList :transactions="transactions" />
+    <TransactionList />
     <AddTransaction />
   </div>
 </template>
@@ -20,33 +20,16 @@ import TransactionList from "./components/TransactionList";
 import AddTransaction from "./components/AddTransaction";
 import "./main.css";
 
-const dummyTransactions = [
-  { id: 1, text: "Flower", amount: -20 },
-  { id: 2, text: "Salary", amount: 300 },
-  { id: 3, text: "Book", amount: -10 },
-  { id: 4, text: "Camera", amount: 150 }
-];
-
 export default {
   name: "App",
-  data() {
-    return {
-      transactions: dummyTransactions
-    };
-  },
+
   components: {
     Header,
     Balance,
     IncomeExpenses,
     TransactionList,
     AddTransaction
-  },
-  methods: {
-    addTransaction(transaction) {
-      this.transactions.push(transaction);
-    }
-  },
-  created() {}
+  }
 };
 </script>
 
