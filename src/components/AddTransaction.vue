@@ -5,7 +5,7 @@
     </h3>
     <form @submit.prevent="addTransaction" novalidate>
       <div class="">
-        <label class="my-4 inline-block font-medium" for="text">Text</label>
+        <label class="mt-4 inline-block font-medium" for="text">Text</label>
         <input
           class="border border-gray-400 rounded block py-1 px-2 w-full text-base"
           type="text"
@@ -17,9 +17,11 @@
         <span class="text-xs text-custom-red">{{ fieldErrors.text }}</span>
       </div>
       <div class="">
-        <label class="my-4 inline-block font-medium" for="amount"
+        <label class="mt-1 inline-block font-medium" for="amount"
           >Amount <br />
-          (negative - expense, positive - income)</label
+          <span class="text-sm"
+            >(negative - expense, positive - income)</span
+          ></label
         >
         <input
           class="border border-gray-400 rounded block py-1 px-2 w-full block"
@@ -34,7 +36,7 @@
         }}</span>
       </div>
       <button
-        class="font-normal bg-purple-700 shadow-md rounded-md text-white block py-1 my-4 w-full hover:bg-purple-600 focus:outline-none"
+        class="font-medium text-sm bg-purple-700 shadow-md rounded-sm text-white block py-1 my-4 w-full hover:bg-purple-600 focus:outline-none"
       >
         Add Transaction
       </button>
