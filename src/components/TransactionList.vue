@@ -12,13 +12,13 @@
         @filter-by="filterText = $event"
         :filterText="filterText"
       />
-      <SortComponent />
+      <SortComponent @sortby="sortText = $event" :sortText="sortText" />
     </div>
     <div
       v-if="
         filterText == 'income' &&
           transactions &&
-          filteredTransactions.length < 1
+          filteredAndSortedTransactions.length < 1
       "
       class="text-center font-medium mt-4"
     >
@@ -28,7 +28,7 @@
       v-if="
         filterText == 'expense' &&
           transactions &&
-          filteredTransactions.length < 1
+          filteredAndSortedTransactions.length < 1
       "
       class="text-center font-medium mt-4"
     >
@@ -37,7 +37,7 @@
 
     <ul class="mb-4">
       <li
-        v-for="transaction in filteredTransactions"
+        v-for="transaction in filteredAndSortedTransactions"
         :key="transaction.id"
         class="font-medium bg-white shadow-md mb-1 flex justify-between relative p-2 border-r-8"
         :class="{
@@ -66,7 +66,8 @@ export default {
   name: "TransactionList",
   data() {
     return {
-      filterText: "all"
+      filterText: "all",
+      sortText: "text"
     };
   },
 
@@ -77,14 +78,27 @@ export default {
 
   computed: {
     ...mapGetters(["transactions"]),
-    filteredTransactions() {
+    filteredAndSortedTransactions() {
+      let filteredTransactions = [];
+      let filteredAndSorted = [];
       if (this.filterText == "all") {
-        return this.transactions;
+        filteredTransactions = this.transactions;
       } else if (this.filterText == "expense") {
-        return this.transactions.filter(tx => tx.amount < 0);
+        filteredTransactions = this.transactions.filter(tx => tx.amount < 0);
       } else {
-        return this.transactions.filter(tx => tx.amount > 0);
+        filteredTransactions = this.transactions.filter(tx => tx.amount > 0);
       }
+
+      if (this.sortText === "text") {
+        filteredAndSorted = filteredTransactions.sort((a, b) =>
+          a.text > b.text ? 1 : -1
+        );
+      } else if (this.sortText === "amount") {
+        filteredAndSorted = filteredTransactions.sort((a, b) =>
+          a.amount > b.amount ? 1 : -1
+        );
+      }
+      return filteredAndSorted;
     }
   },
 

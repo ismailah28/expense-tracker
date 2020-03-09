@@ -4,14 +4,18 @@
     <div class="w-full flex justify-between">
       <div class="w-1/2">
         <button
-          class="w-full text-xs text-white py-1 rounded-l rounded-r-none bg-purple-600 focus:bg-purple-500 focus:outline-none"
+          @click="$emit('sortby', 'text')"
+          class="w-full text-xs text-white py-1 rounded-l rounded-r-none bg-purple-600 focus:outline-none"
+          :class="{ bgg: sortText === 'text' }"
         >
           Text
         </button>
       </div>
       <div class="w-1/2">
         <button
-          class="w-full text-xs text-white py-1 block rounded-r rounded-l-none bg-purple-600 focus:bg-purple-500 focus:outline-none"
+          @click="$emit('sortby', 'amount')"
+          class="w-full text-xs text-white py-1 block rounded-r rounded-l-none bg-purple-600 focus:outline-none"
+          :class="{ bgg: sortText === 'amount' }"
         >
           Amount
         </button>
@@ -21,6 +25,12 @@
 </template>
 <script>
 export default {
-  name: "SortComponent"
+  name: "SortComponent",
+  props: ["sortText"]
 };
 </script>
+<style lang="css" scoped>
+.bgg {
+  @apply bg-purple-500;
+}
+</style>
