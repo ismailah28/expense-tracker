@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col items-center w-1/3">
-    <small class="mb-1 text-gray-700 font-medium">Sort By</small>
+  <div class="flex flex-col w-1/3">
+    <small class="mb-1 text-gray-700 font-medium ml-auto">Sort By</small>
     <div class="w-full flex justify-between">
       <div class="w-1/2">
         <button
