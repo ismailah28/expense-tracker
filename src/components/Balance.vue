@@ -5,19 +5,12 @@
   </div>
 </template>
 <script>
-import EventBus from "../eventBus";
-
+import { mapGetters } from "vuex";
 export default {
   name: "Balance",
-  data() {
-    return {
-      balance: 0
-    };
-  },
-  created() {
-    EventBus.$on("add-transaction", event => {
-      this.balance += event.amount;
-    });
+
+  computed: {
+    ...mapGetters(["balance"])
   }
 };
 </script>
