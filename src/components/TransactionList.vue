@@ -45,7 +45,7 @@
   </div>
 </template>
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 import FilterComponent from "./FilterComponent";
 import SortComponent from "./SortComponent";
 import TransactionItem from "./TransactionItem";
@@ -89,15 +89,6 @@ export default {
       }
       return filteredAndSorted;
     }
-  },
-
-  methods: {
-    ...mapActions(["deleteTransaction"])
   }
 };
 </script>
-<style scoped>
-li:hover .delete-btn {
-  opacity: 1;
-}
-</style>

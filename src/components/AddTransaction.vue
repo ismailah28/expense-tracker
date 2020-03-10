@@ -67,7 +67,8 @@ export default {
       let newTransaction = {
         id: Date.now(),
         text: this.fields.text,
-        amount: this.fields.amount
+        amount: this.fields.amount,
+        date: new Date().toISOString()
       };
       this.$store.dispatch("addTransaction", newTransaction);
 
