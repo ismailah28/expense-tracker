@@ -1,7 +1,7 @@
 <template>
   <div class="mt-8 my-4">
     <h4>Your Balance</h4>
-    <h1>${{ balance }}</h1>
+    <h1>{{ balance | currency }}</h1>
   </div>
 </template>
 <script>

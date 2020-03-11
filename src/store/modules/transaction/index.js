@@ -31,23 +31,20 @@ const getters = {
 
   balance: state => {
     let amounts = state.transactions.map(transaction => transaction.amount);
-    return amounts.reduce((acc, item) => acc + item, 0).toFixed(2);
+    return amounts.reduce((acc, item) => acc + item, 0);
   },
 
   income: state =>
     state.transactions
       .map(transaction => transaction.amount)
       .filter(amount => amount > 0)
-      .reduce((acc, item) => (acc += item), 0)
-      .toFixed(2),
+      .reduce((acc, item) => (acc += item), 0),
 
   expense: state =>
-    (
-      state.transactions
-        .map(transaction => transaction.amount)
-        .filter(amount => amount < 0)
-        .reduce((acc, item) => (acc += item), 0) * -1
-    ).toFixed(2)
+    state.transactions
+      .map(transaction => transaction.amount)
+      .filter(amount => amount < 0)
+      .reduce((acc, item) => (acc += item), 0) * -1
 };
 
 const transactionModule = {

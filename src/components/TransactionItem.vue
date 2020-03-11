@@ -13,7 +13,7 @@
           transaction.date | moment("from", now)
         }}</small>
       </div>
-      <span>{{ transaction.amount }}</span>
+      <span>{{ transaction.amount | currency }}</span>
       <button
         @click="deleteTransaction(transaction)"
         class="delete-btn bg-custom-red text-white text-lg font-medium p-1 leading-5 absolute top-0 left-0
