@@ -42,11 +42,12 @@ const getters = {
       .toFixed(2),
 
   expense: state =>
-    state.transactions
-      .map(transaction => transaction.amount)
-      .filter(amount => amount < 0)
-      .reduce((acc, item) => (acc += item), 0)
-      .toFixed(2) * -1
+    (
+      state.transactions
+        .map(transaction => transaction.amount)
+        .filter(amount => amount < 0)
+        .reduce((acc, item) => (acc += item), 0) * -1
+    ).toFixed(2)
 };
 
 const transactionModule = {

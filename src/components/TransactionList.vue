@@ -55,7 +55,7 @@ export default {
   data() {
     return {
       filterText: "all",
-      sortText: "text"
+      sortText: "date"
     };
   },
 
@@ -85,6 +85,10 @@ export default {
       } else if (this.sortText === "amount") {
         filteredAndSorted = filteredTransactions.sort((a, b) =>
           a.amount > b.amount ? 1 : -1
+        );
+      } else if (this.sortText === "date") {
+        filteredAndSorted = filteredTransactions.sort((a, b) =>
+          a.date > b.date ? -1 : 1
         );
       }
       return filteredAndSorted;

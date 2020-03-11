@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col w-2/3 mr-1">
+  <div class="flex flex-col w-1/2 mr-1">
     <small class="mb-1 text-gray-700 font-medium">Filter By</small>
     <div class="w-full flex">
       <div class="w-1/3">
@@ -17,7 +17,7 @@
           class="w-full text-xs text-white py-1 rounded-none bg-purple-600 focus:outline-none"
           :class="{ bgg: filterText === 'income' }"
         >
-          Incomes
+          Income
         </button>
       </div>
       <div class="w-1/3">
@@ -26,7 +26,7 @@
           class="w-full text-xs text-white py-1 px-2 rounded-r rounded-l-none bg-purple-600  focus:outline-none"
           :class="{ bgg: filterText === 'expense' }"
         >
-          Expenses
+          Expense
         </button>
       </div>
     </div>
